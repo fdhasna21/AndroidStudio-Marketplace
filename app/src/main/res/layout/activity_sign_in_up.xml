@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignInUp.SignActivity"
+    style="@style/loginParent"
+    android:id="@+id/signin_layout">
+
+    <RelativeLayout
+        style="@style/parent"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true">
+            <LinearLayout
+                style="@style/parent"
+                android:background="@drawable/login_shape_bk"
+                android:orientation="vertical">
+                <ImageView
+                    style="@style/parent"
+                    android:background="@drawable/ic_login_bk"
+                    android:contentDescription="login background"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp">
+            <TextView
+                android:id="@+id/signin_txt_header"
+                style="@style/headerText"
+                android:layout_gravity="center"
+                android:text="Yeouth"
+                android:layout_marginTop="40dp"/>
+
+            <fragment
+                android:id="@+id/nav_host_fragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/signin_signup" />
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/main_fragment_container"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="vertical" />-->
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

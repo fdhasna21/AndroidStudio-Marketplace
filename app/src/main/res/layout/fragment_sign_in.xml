@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/loginCard"
+    app:cardCornerRadius="@dimen/loginCardRadius"
+    android:elevation="5dp"
+    android:layout_gravity="top"
+    android:layout_marginTop="@dimen/loginViewsMargin"
+    android:layout_marginBottom="@dimen/loginViewsMargin"
+    android:background="@color/whiteCardColor"
+    tools:context=".SignInUp.SignInFragment">
+
+    <LinearLayout
+        style="@style/linearParent"
+        android:layout_gravity="center"
+        android:padding="@dimen/loginViewsMargin">
+        <TextView
+            style="@style/headerTextPrimary"
+            android:text="LOGIN"
+            android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signin_layout_email"
+            style="@style/parent"
+            android:layout_marginTop="@dimen/edittext_margin">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signin_input_email"
+                style="@style/modifiedEditText"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:hint="Email"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signin_layout_password"
+            style="@style/parent"
+            android:layout_marginTop="@dimen/edittext_margin"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleDrawable="@drawable/selector_password">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/signin_input_password"
+                style="@style/modifiedEditText"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:hint="Password" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/viewParent"
+            android:id="@+id/signin_txtClick_forget"
+            android:text="Forgot Password?"
+            android:textColor="?attr/colorPrimary"
+            android:textSize="@dimen/newsMoreTextSize"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"/>
+
+        <CheckBox
+            android:id="@+id/signin_check_remember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember me"
+            android:textColor="@color/default_gray"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:buttonTint="?attr/colorPrimary"/>
+
+        <Button
+            android:id="@+id/signin_btn_signIn"
+            style="@style/AppTextAppearance.Button"
+            android:text="Login"
+            android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/newsMoreTextSize"
+                android:textAlignment="center"
+                android:text="Don't have an account?"
+                android:textColor="@color/default_gray"
+                android:layout_marginTop="@dimen/loginViewsMargin"/>
+
+            <TextView
+                android:id="@+id/signin_txtClick_signUp"
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/newsMoreTextSize"
+                android:textAlignment="center"
+                android:text="Sign Up!"
+                android:textColor="?attr/colorPrimary"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/loginViewsMargin"
+                android:foregroundGravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
