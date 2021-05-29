@@ -10,7 +10,8 @@
     android:layout_marginTop="@dimen/loginViewsMargin"
     android:layout_marginBottom="@dimen/loginViewsMargin"
     android:background="@color/whiteCardColor"
-    tools:context=".SignInUp.SignInFragment">
+    tools:context=".SignInUp.SignInFragment"
+    android:id="@+id/signin_fragment">
 
     <LinearLayout
         style="@style/linearParent"
@@ -30,7 +31,7 @@
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
-                android:hint="Email"/>
+                android:hint="Email" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

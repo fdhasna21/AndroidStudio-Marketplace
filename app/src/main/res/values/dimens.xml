@@ -8,4 +8,10 @@
 
     <dimen name="signup_text_margin_top">10dp</dimen>
     <dimen name="edittext_margin">20dp</dimen>
+
+    <dimen name="layoutPadding">24dp</dimen>
+    <dimen name="viewPadding">12dp</dimen>
+    <dimen name="subviewPadding">6dp</dimen>
+    <dimen name="bottomBarPadding">60dp</dimen>
+    <dimen name="titleMarginLeft">48dp</dimen>
 </resources>

@@ -9,7 +9,8 @@
     android:layout_marginTop="@dimen/loginViewsMargin"
     android:layout_marginBottom="@dimen/loginViewsMargin"
     android:background="@color/whiteCardColor"
-    tools:context=".SignInUp.SignUpFragment">
+    tools:context=".SignInUp.SignUpFragment"
+    android:id="@+id/signup_fragment">
 
     <LinearLayout
         style="@style/linearParent"
@@ -21,6 +22,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_layout_name"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
             <com.google.android.material.textfield.TextInputEditText
@@ -32,6 +34,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_layout_email"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
             <com.google.android.material.textfield.TextInputEditText
@@ -43,6 +46,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_layout_password"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
             app:passwordToggleEnabled="true"
@@ -56,6 +60,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/signup_layout_passwordConfirm"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
             app:passwordToggleEnabled="true"
@@ -65,7 +70,7 @@
                 style="@style/modifiedEditText"
                 android:singleLine="true"
                 android:inputType="textPassword"
-                android:hint="Password Confirmation"/>
+                android:hint="Confirm Password"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

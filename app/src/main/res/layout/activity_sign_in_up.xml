@@ -7,11 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".SignInUp.SignActivity"
     style="@style/loginParent"
-    android:id="@+id/signin_layout">
+    android:id="@+id/signinup_layout">
 
     <RelativeLayout
         style="@style/parent"
         tools:ignore="MissingConstraints">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -20,6 +21,23 @@
                 style="@style/parent"
                 android:background="@drawable/login_shape_bk"
                 android:orientation="vertical">
+
+<!--                <com.google.android.material.appbar.AppBarLayout-->
+<!--                    android:id="@+id/signinup_topbar"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="?attr/actionBarSize"-->
+<!--                    app:elevation="0dp">-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/signinup_btn_back"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:src="@drawable/icon_back"-->
+<!--                        android:paddingHorizontal="@dimen/subviewPadding"-->
+<!--                        android:foregroundGravity="center"-->
+<!--                        android:translationZ="90dp"/>-->
+<!--                </com.google.android.material.appbar.AppBarLayout>-->
+
                 <ImageView
                     style="@style/parent"
                     android:background="@drawable/ic_login_bk"
@@ -48,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
-                app:navGraph="@navigation/signin_signup" />
+                app:navGraph="@navigation/nav_sign_in_up" />
 
 <!--            <LinearLayout-->
 <!--                android:id="@+id/main_fragment_container"-->
