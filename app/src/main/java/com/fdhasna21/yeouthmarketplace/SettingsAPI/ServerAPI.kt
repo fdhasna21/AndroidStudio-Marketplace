@@ -1,6 +1,8 @@
 package com.fdhasna21.yeouthmarketplace.SettingsAPI
 
+import android.content.Context
 import com.fdhasna21.yeouthmarketplace.apiToken
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -14,6 +16,10 @@ class ServerAPI {
     var BASE_URL : String = "http://fdhasna.teknisitik.com/api/v1/"
     var retrofit : Retrofit? = null
     var httpClient = OkHttpClient.Builder()
+
+    fun setCircularProgress(context: Context) : CircularProgressIndicator{
+        return CircularProgressIndicator(context)
+    }
 
     fun getServerAPI() : Retrofit?{
         if(retrofit == null){

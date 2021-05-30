@@ -7,20 +7,13 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.fdhasna21.yeouthmarketplace.DataClass.Category
 import com.fdhasna21.yeouthmarketplace.R
-import com.fdhasna21.yeouthmarketplace.SettingsAPI.Interface.CategoryFeedInterface
-import com.fdhasna21.yeouthmarketplace.SettingsAPI.Interface.UserInterface
-import com.fdhasna21.yeouthmarketplace.SettingsAPI.ServerAPI
-import com.fdhasna21.yeouthmarketplace.apiToken
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.fragment_main_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBottomBar : BottomNavigationView
@@ -34,6 +27,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //TODO : show progress bar!
 
         /* TOP BAR : topbar_mainmenu*/
         mainTopBar = findViewById(R.id.main_topbar_menu)
@@ -53,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         /* BOTTOM BAR : bottombar_mainmenu */
-        //TODO : make mainBottomBar always hide when softkey popup
         mainBottomBar = findViewById(R.id.main_bottombar_menu)
         setCurrentFragment(MainHome())
         mainBottomBar.setOnNavigationItemSelectedListener {
@@ -82,6 +76,11 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+//        /* LOADING BAR : main_progress */
+//        MainHome().loadingBar = main_progress
+//        MainFeeds().loadingBar = main_progress
+//        MainProfile().loadingBar = main_progress
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {

@@ -68,4 +68,5 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
 
+    implementation "com.airbnb.android:lottie:$lottie_version"
 }

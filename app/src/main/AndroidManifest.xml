@@ -14,15 +14,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yeouth"
         android:usesCleartextTraffic="true"
-        android:windowSoftInputMode="adjustPan">
-        <activity android:name=".SignInUp.SignActivity">
+        android:windowSoftInputMode="adjustPan"
+        android:fitsSystemWindows="true">
+        <activity
+            android:name=".SplashScreen"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainApplication.MainActivity"/>
+        <activity android:name=".SignInUp.SignActivity">
+
+        </activity>
+        <activity android:name=".MainApplication.MainActivity" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

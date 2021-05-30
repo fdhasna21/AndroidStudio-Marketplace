@@ -20,6 +20,7 @@ import com.fdhasna21.yeouthmarketplace.SettingsAPI.ResponseDataClass.ErrorHelper
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.ResponseDataClass.ErrorResponse
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.ServerAPI
 import com.fdhasna21.yeouthmarketplace.apiToken
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import kotlinx.android.synthetic.main.activity_sign_in_up.*
 import kotlinx.android.synthetic.main.fragment_sign_in.view.*
 import retrofit2.Call
@@ -71,18 +72,19 @@ class SignInFragment : Fragment() {
                         userPassword = input_password.text.toString()
                 )
 
-                val intent = Intent(activity, MainActivity::class.java)
-                startActivity(intent)
+                val loadingBar = activity?.signinup_progress
+                loadingBar!!.visibility = View.VISIBLE
                 val userInterface : UserInterface = ServerAPI().getServerAPI()!!.create(UserInterface::class.java)
                 userInterface.userLogin(userInfo).enqueue(object : Callback<UserInfo> {
-                    //TODO : add progress bar to know retrofit request process is still loading and reduce space
                     override fun onResponse(call: Call<UserInfo>?, response: Response<UserInfo>?) =
                             if (response!!.isSuccessful) {
+                                loadingBar!!.visibility = View.GONE
                                 apiToken = response.body()?.userAPItoken!!
                                 Toast.makeText(activity, "Login successfull.", Toast.LENGTH_LONG).show()
                                 val intent = Intent(activity, MainActivity::class.java)
                                 startActivity(intent)
                             } else {
+                                loadingBar!!.visibility = View.GONE
                                 try {
                                     val output : ErrorResponse = ErrorHelper().parseErrorBody(response)
                                     view.signin_layout_email.error =

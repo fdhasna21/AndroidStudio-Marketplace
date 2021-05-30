@@ -10,8 +10,9 @@
         <item name="colorSecondaryVariant">@color/cream_light</item>
         <item name="colorOnSecondary">@color/cream_dark</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
-        <item name="android:windowLightStatusBar">false</item>
+<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>-->
+        <item name="android:windowTranslucentStatus">true</item>
+<!--        <item name="android:windowLightStatusBar">false</item>-->
         <!-- Customize your theme here. -->
         <item name="textInputStyle">@style/TextInputLayoutStyle</item>
         <item name="android:colorBackground">@color/white</item>
@@ -19,6 +20,7 @@
         <item name="shapeAppearanceSmallComponent">@style/AppShapeAppearance.SmallComponent</item>
         <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearance.LargeComponent</item>
         <item name="colorOnError">@color/red</item>
+        <item name="android:fontFamily">@font/montserrat</item>
 
     </style>
 </resources>

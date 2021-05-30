@@ -74,14 +74,18 @@ class SignUpFragment : Fragment() {
                         userEmail = input_email.text.toString(),
                         userPassword = input_password.text.toString(),
                         userPasswordConfirmation = input_confirm.text.toString())
-                val userInterface : UserInterface = ServerAPI().getServerAPI()!!.create(
-                    UserInterface::class.java)
+
+                val loadingBar = activity?.signinup_progress
+                loadingBar!!.visibility = View.VISIBLE
+                val userInterface : UserInterface = ServerAPI().getServerAPI()!!.create(UserInterface::class.java)
                 userInterface.userRegis(userInfo).enqueue(object : Callback<SuccessResponse> {
                     override fun onResponse(call: Call<SuccessResponse>?, response: Response<SuccessResponse>?) {
                         if (response!!.isSuccessful) {
+                            loadingBar!!.visibility = View.GONE
                             Toast.makeText(activity, "Registration successfull.", Toast.LENGTH_LONG).show()
                             nav_host_fragment.findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
                         } else {
+                            loadingBar!!.visibility = View.GONE
                             try {
                                 val output: ErrorResponse = ErrorHelper().parseErrorBody(response)
                                 view.signup_layout_email.error =
@@ -101,7 +105,6 @@ class SignUpFragment : Fragment() {
                     }
                 })
             } else{
-                //TODO : add validation ui if password match and add mechanism to check password
                 if(input_name.text.toString().isEmpty()){
                     view.signup_layout_name.error = "Name cannot be null or empty."
                 }

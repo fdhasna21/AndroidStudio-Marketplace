@@ -22,21 +22,27 @@
                 android:background="@drawable/login_shape_bk"
                 android:orientation="vertical">
 
-<!--                <com.google.android.material.appbar.AppBarLayout-->
-<!--                    android:id="@+id/signinup_topbar"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="?attr/actionBarSize"-->
-<!--                    app:elevation="0dp">-->
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/signinup_topbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:elevation="0dp">
+
+                    <include
+                        android:id="@+id/main_statusbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/transparent_status_bar" />
 
 <!--                    <ImageView-->
 <!--                        android:id="@+id/signinup_btn_back"-->
 <!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_height="?attr/actionBarSize"-->
 <!--                        android:src="@drawable/icon_back"-->
 <!--                        android:paddingHorizontal="@dimen/subviewPadding"-->
 <!--                        android:foregroundGravity="center"-->
 <!--                        android:translationZ="90dp"/>-->
-<!--                </com.google.android.material.appbar.AppBarLayout>-->
+                </com.google.android.material.appbar.AppBarLayout>
 
                 <ImageView
                     style="@style/parent"
@@ -67,14 +73,14 @@
                 android:layout_height="match_parent"
                 app:defaultNavHost="true"
                 app:navGraph="@navigation/nav_sign_in_up" />
-
-<!--            <LinearLayout-->
-<!--                android:id="@+id/main_fragment_container"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:orientation="vertical" />-->
         </LinearLayout>
-
     </RelativeLayout>
+
+    <include
+        android:id="@+id/signinup_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        layout="@layout/transparent_progress_circular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

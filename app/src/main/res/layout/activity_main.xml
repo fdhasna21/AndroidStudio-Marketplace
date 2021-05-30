@@ -15,6 +15,12 @@
         android:layout_gravity="top"
         app:elevation="0dp"
         android:outlineProvider="none">
+        <include
+            android:id="@+id/main_statusbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/transparent_status_bar" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -24,7 +30,7 @@
                 android:id="@+id/main_topbar_edittext_search"
                 android:layout_width="330dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edittext_background"
+                android:background="@drawable/bg_edittext"
                 android:layout_margin="@dimen/subviewPadding"
                 android:layout_gravity="start"
                 android:drawableStart="@drawable/icon_search2"
@@ -32,7 +38,8 @@
                 android:drawablePadding="12dp"
                 android:translationZ="90dp"
                 android:textSize="14dp"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:outlineProvider="none"/>
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/main_topbar_menu"
@@ -61,4 +68,13 @@
         android:layout_gravity="bottom"
         app:menu="@menu/bottombar_mainmenu"/>
 
+    <RelativeLayout
+        android:id="@+id/main_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/transparent_progress_circular" />
+    </RelativeLayout>
 </RelativeLayout>

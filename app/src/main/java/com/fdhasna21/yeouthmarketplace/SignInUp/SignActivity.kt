@@ -29,9 +29,6 @@ class SignActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in_up)
-
-        //TODO : if apiToken is defined, goto MainActivity (use SQLite to save apiToken)
-
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
