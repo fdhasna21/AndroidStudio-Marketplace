@@ -1,11 +1,16 @@
 package com.fdhasna21.yeouthmarketplace.All
 
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
+
+fun getCurrency(price: Int?):String{
+    return NumberFormat.getCurrencyInstance(Locale("in", "id")).format(price)
+}
 
 fun removeResponseRegex(data : String?):String{
     return data!!.replace("[", "").replace("]","")

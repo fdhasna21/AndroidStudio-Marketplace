@@ -21,3 +21,9 @@ data class CategoryGroup(
     @SerializedName("mainProducts") val groupProduct : ArrayList<MainProduct>?,
     @SerializedName("image") val groupImage : String?
     )
+
+data class Feed(
+    @SerializedName("newCollection") val newCollection : ArrayList<MainProduct>?,
+    @SerializedName("trendingMerchandise") val trendingMerchandise : ArrayList<MainProduct>?,
+    @SerializedName("bestSeller") val bestSeller : ArrayList<MainProduct>?
+)

@@ -42,4 +42,5 @@
     <string name="payment_method">Payment Method</string>
     <string name="receiver_name">Receiver Name</string>
     <string name="x_0">x 0</string>
+    <string name="new_collection">New Collection</string>
 </resources>

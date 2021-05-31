@@ -1,25 +1,24 @@
 package com.fdhasna21.yeouthmarketplace.MainApplication
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.fdhasna21.yeouthmarketplace.Adapter.CategoriesAdapter
+import com.fdhasna21.yeouthmarketplace.Adapter.CategoryAdapter
 import com.fdhasna21.yeouthmarketplace.DataClass.Category
 import com.fdhasna21.yeouthmarketplace.R
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.Interface.CategoryFeedInterface
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.ResponseDataClass.ErrorHelper
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.ResponseDataClass.ErrorResponse
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.ServerAPI
-import com.fdhasna21.yeouthmarketplace.apiToken
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_main_home.*
 import kotlinx.android.synthetic.main.fragment_main_home.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -71,16 +70,27 @@ class MainHome : Fragment() {
         carouselView.setImageListener(imageListener)
         carouselView.setPageCount(sampleImages.size)
 
-//        val itemAdapter = ProductCategoriesAdapter(arrayCategories, requireActivity())
-//        productcategories_container.layoutManager = LinearLayoutManager(activity)
-//        productcategories_container.adapter = itemAdapter
-
-        //TODO : make adapter
         val categoryFeedInterface = ServerAPI().getServerAPI()!!.create(CategoryFeedInterface::class.java)
         categoryFeedInterface.categoryProduct(null, 5).enqueue(object : Callback<Category> {
-            override fun onResponse(call: Call<Category>?, response: Response<Category>?) =
+            override fun onResponse(call: Call<Category>?, response: Response<Category>?) {
                 if (response!!.isSuccessful) {
-                    Toast.makeText(activity, response.body().toString(), Toast.LENGTH_LONG).show()
+                    val categoryAdapter = CategoriesAdapter(
+                        arrayListOf(1, 2),
+                        response.body()?.merch,
+                        response.body()?.group,
+                        requireContext()
+                    )
+                    view.home_recycler_container.layoutManager = LinearLayoutManager(context)
+                    view.home_recycler_container.adapter = categoryAdapter
+
+//                    val categoryGroup = CategoryAdapter(categoryGroup = response.body()!!.group!!, context = requireContext())
+//                    view.home_group_container.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+//                    view.home_group_container.adapter = categoryGroup
+//
+//                    val categoryMerchandise = CategoryAdapter(categoryMerchandise = response.body()!!.merch!!, context = requireContext())
+//                    view.home_merchandise_container.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
+//                    view.home_merchandise_container.adapter = categoryMerchandise
+
                 } else {
                     try {
                         Toast.makeText(activity, "Failed to load data.", Toast.LENGTH_SHORT).show()
@@ -89,6 +99,7 @@ class MainHome : Fragment() {
                         //test.text = "$apiToken ${output.toString()}"
                     } catch (e: Exception) { }
                 }
+            }
 
             override fun onFailure(call: Call<Category>?, t: Throwable) {
                 Toast.makeText(activity, t.toString(), Toast.LENGTH_SHORT).show()

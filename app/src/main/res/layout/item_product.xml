@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="170dp"
+    android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/item_product_img"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:contentDescription="@string/item_image"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:layout_gravity="center"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/item_product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="40dp"
+            android:textStyle="bold"
+            style="?attr/textAppearanceSubtitle1"
+            android:text="@string/product_name"
+            android:layout_below="@id/item_product_img"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:id="@+id/item_product_category"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            style="?attr/textAppearanceBody2"
+            android:text="@string/product_category"
+            android:layout_below="@id/item_product_name" />
+
+        <TextView
+            android:id="@+id/item_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            style="?attr/textAppearanceBody1"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary"
+            android:text="@string/product_price"
+            android:layout_below="@id/item_product_category"
+            android:layout_marginTop="4dp"/>
+
+        <ImageView
+            android:id="@+id/item_catalog_rate"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/icon_rate"
+            android:layout_below="@id/item_product_price"
+            android:layout_marginTop="2dp"
+            android:paddingStart="-2dp"
+            tools:ignore="RtlSymmetry"
+            android:contentDescription="@string/product_rate" />
+
+        <TextView
+            android:id="@+id/item_product_rate"
+            android:layout_width="20dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"
+            style="?attr/textAppearanceCaption"
+            android:layout_below="@id/item_product_price"
+            android:layout_toEndOf="@id/item_catalog_rate"
+            android:text="@string/product_rate"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/item_catalog_ratesold_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"
+            style="?attr/textAppearanceCaption"
+            android:layout_below="@id/item_product_price"
+            android:layout_toEndOf="@id/item_product_rate"
+            android:text="@string/separator"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/item_catalog_sold"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/icon_sold"
+            android:layout_below="@id/item_product_price"
+            android:layout_toRightOf="@id/item_catalog_ratesold_separator"
+            android:layout_marginTop="2dp"
+            tools:ignore="RtlSymmetry"
+            android:contentDescription="@string/product_rate" />
+
+        <TextView
+            android:id="@+id/item_product_sold"
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="2dp"
+            style="?attr/textAppearanceCaption"
+            android:layout_below="@id/item_product_price"
+            android:layout_toEndOf="@id/item_catalog_sold"
+            android:text="@string/sold"
+            android:layout_gravity="center"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

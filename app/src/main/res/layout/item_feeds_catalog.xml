@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/item_feeds_layout">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layoutPadding">
+
+        <TextView
+            android:id="@+id/item_feeds_name"
+            style="?attr/textAppearanceHeadline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recommendation_for_you" />
+
+        <TextView
+            android:id="@+id/item_feeds_seeAll"
+            style="?attr/textAppearanceCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="@string/see_all"
+            android:layout_alignBaseline="@id/item_feeds_name"
+            android:layout_alignParentEnd="true"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/item_feeds_container"
+            android:layout_below="@id/item_feeds_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+    </RelativeLayout>
+</LinearLayout>

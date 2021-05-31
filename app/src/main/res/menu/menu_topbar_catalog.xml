@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/topbar_search"
+        android:icon="@drawable/icon_search"
+        app:showAsAction="always|collapseActionView"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        android:iconifiedByDefault="false"/>
+
+    <item
+        android:id="@+id/topbar_filter"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_filter2"
+        android:title="@string/filter">
+    </item>
+
+    <item
+        android:id="@+id/topbar_shoppingbag"
+        android:icon="@drawable/icon_shoppingbag"
+        app:showAsAction="always"
+        android:title="@string/shopping_bag" />
+</menu>

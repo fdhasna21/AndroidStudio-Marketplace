@@ -23,13 +23,11 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:orientation="horizontal">
-
+            android:layout_height="?attr/actionBarSize">
             <EditText
-                android:id="@+id/main_topbar_edittext_search"
+                android:id="@+id/main_topbar_edittext"
                 android:layout_width="330dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:background="@drawable/bg_edittext"
                 android:layout_margin="@dimen/subviewPadding"
                 android:layout_gravity="start"
@@ -45,11 +43,13 @@
                 android:id="@+id/main_topbar_menu"
                 style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:layout_alignParentEnd="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
-                app:menu="@menu/topbar_mainmenu"
-                app:titleTextColor="@color/white" />
+                app:menu="@menu/menu_topbar_main"
+                app:titleTextColor="@color/white"
+                android:outlineProvider="none"/>
         </FrameLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -66,12 +66,14 @@
         android:layout_height="@dimen/bottomBarPadding"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        app:menu="@menu/bottombar_mainmenu"/>
+        app:menu="@menu/menu_bottombar_main"/>
 
+<!--    TODO : progress bar visibility still "gone"-->
     <RelativeLayout
         android:id="@+id/main_progress"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
         <include
             android:layout_width="match_parent"
             android:layout_height="match_parent"

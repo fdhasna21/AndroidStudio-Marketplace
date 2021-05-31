@@ -1,19 +1,19 @@
 package com.fdhasna21.yeouthmarketplace.MainApplication
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
-import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.fdhasna21.yeouthmarketplace.CatalogDetail.CatalogActivity
 import com.fdhasna21.yeouthmarketplace.R
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBottomBar : BottomNavigationView
@@ -32,14 +32,17 @@ class MainActivity : AppCompatActivity() {
 
         /* TOP BAR : topbar_mainmenu*/
         mainTopBar = findViewById(R.id.main_topbar_menu)
-        val searchEditText = findViewById<EditText>(R.id.main_topbar_edittext_search)
+        val searchEditText = findViewById<EditText>(R.id.main_topbar_edittext)
         val searchIcon = mainTopBar.menu.findItem(R.id.topbar_search)
         searchIcon.setVisible(false)
         mainTopBar.setOnMenuItemClickListener {
             when(it.itemId) {
                 R.id.topbar_shoppingbag -> {
+                    //TODO : intent to shopping bag
 //                    val intent = Intent(applicationContext, ShoppingBag::class.java)
 //                    startActivity(intent)
+                    val intent = Intent(applicationContext, CatalogActivity::class.java)
+                    startActivity(intent)
                     Toast.makeText(this, "Shopping Bag", Toast.LENGTH_SHORT).show()
                     true
                 }
@@ -54,21 +57,21 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.bottombar_home     -> {
                     setCurrentFragment(MainHome())
-                    searchEditText.visibility = View.VISIBLE
                     searchEditText.text = null
+                    searchEditText.visibility = View.VISIBLE
                     searchIcon.setVisible(false)
                     mainTopBar.title = ""
                 }
                 R.id.bottombar_feeds -> {
                     setCurrentFragment(MainFeeds())
-                    searchEditText.visibility = View.INVISIBLE
+                    searchEditText.visibility = View.GONE
                     searchIcon.setVisible(true)
                     searchIcon.collapseActionView()
                     mainTopBar.title = "Feeds"
                 }
                 R.id.bottombar_profile -> {
                     setCurrentFragment(MainProfile())
-                    searchEditText.visibility = View.INVISIBLE
+                    searchEditText.visibility = View.GONE
                     searchIcon.collapseActionView()
                     searchIcon.setVisible(true)
                     mainTopBar.title = "Profile"

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/catalog_statusbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/transparent_status_bar" />
+
+    <TextView
+        android:id="@+id/drawercontent_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:text="Filter"
+        android:background="?attr/colorPrimary"
+        android:gravity="left|center"
+        style="?attr/textAppearanceHeadline6"
+        android:textColor="@color/white"
+        android:paddingHorizontal="@dimen/layoutPadding"/>
+
+<!--  TODO : Isi (Sort by rate, by alphabet name, by release, product_sold, product_release-->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/drawercontent_location"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@id/drawercontent_title"
+        android:layout_margin="@dimen/subviewPadding"
+        android:tooltipText="@string/product_name"
+        android:layout_centerHorizontal="true"
+        style="Widget.MaterialComponents.Chip.Filter">
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Jabodetabek"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="DKI Jakarta"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="West Java"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Banten"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="DI Yogyakarta"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Central Java"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="East Java"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+        <com.google.android.material.chip.Chip
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:text="Bali"
+            android:textAlignment="center"
+            android:textSize="12dp"/>
+    </com.google.android.material.chip.ChipGroup>
+</LinearLayout>

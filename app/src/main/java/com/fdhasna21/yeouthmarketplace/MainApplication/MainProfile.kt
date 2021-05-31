@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import com.fdhasna21.yeouthmarketplace.CatalogDetail.CatalogActivity
 import com.fdhasna21.yeouthmarketplace.R
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
