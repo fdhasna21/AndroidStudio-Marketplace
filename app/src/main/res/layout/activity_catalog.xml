@@ -34,7 +34,8 @@
                 android:layout_height="match_parent"
                 app:menu="@menu/menu_topbar_catalog"
                 app:titleTextColor="@color/white"
-                app:title="Catalog"/>
+                app:title="Catalog"
+                android:outlineProvider="none"/>
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -53,6 +54,16 @@
         android:fitsSystemWindows="true"
         app:menu="@menu/drawercontent_catalogmenu"
         android:layout_gravity="right"
-        app:headerLayout="@layout/drawercontent_header"
-        />
+        app:headerLayout="@layout/drawercontent_header" />
+
+    <RelativeLayout
+        android:id="@+id/catalog_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/transparent_progress_circular" />
+    </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

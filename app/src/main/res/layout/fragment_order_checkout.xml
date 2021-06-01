@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Orders.CheckoutFragment"
+    android:id="@+id/checkout_fragment">
+
+    <RelativeLayout
+        android:id="@+id/checkout_address_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shoppingbag_bar_background">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/viewPadding">
+
+            <ImageView
+                android:id="@+id/checkout_address_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/shipping_address"
+                android:src="@drawable/icon_place" />
+
+            <TextView
+                android:id="@+id/checkout_address_txt"
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignBaseline="@id/checkout_address_img"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/checkout_address_img"
+                android:text="@string/shipping_address"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/checkout_address_receiver"
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/checkout_address_txt"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@id/checkout_address_img"
+                android:maxLines="5"
+                android:text="@string/shipping_address"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/checkout_address_nextAction"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/viewPadding"
+            android:contentDescription="@string/shipping_address"
+            android:src="@drawable/icon_next" />
+    </RelativeLayout>
+
+<!--    TODO : make checkout Adapter and item_checkout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/checkout_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layoutPadding"
+        android:layout_below="@id/checkout_address_data"/>
+
+    <RelativeLayout
+        android:id="@+id/checkout_delivery_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkout_container"
+        android:background="@drawable/shoppingbag_bar_background">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/viewPadding">
+
+            <ImageView
+                android:id="@+id/checkout_delivery_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/shipping_option"
+                android:src="@drawable/icon_delivery" />
+
+            <TextView
+                android:id="@+id/checkout_delivery_txt"
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignBaseline="@id/checkout_delivery_img"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/checkout_delivery_img"
+                android:text="@string/shipping_option"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/checkout_delivery_receiver"
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@id/checkout_delivery_txt"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@id/checkout_delivery_img"
+                android:maxHeight="40dp"
+                android:text="@string/shipping_option"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/checkout_delivery_nextAction"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/viewPadding"
+            android:contentDescription="@string/shipping_option"
+            android:src="@drawable/icon_next" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/checkout_payment_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/checkout_delivery_data"
+        android:background="@drawable/shoppingbag_bar_background">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/viewPadding">
+
+            <ImageView
+                android:id="@+id/checkout_payment_img"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/payment_method"
+                android:src="@drawable/icon_payment" />
+
+            <TextView
+                android:id="@+id/checkout_payment_txt"
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignBaseline="@id/checkout_payment_img"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/checkout_payment_img"
+                android:text="@string/payment_method"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/checkout_payment_receiver"
+                style="?attr/textAppearanceBody2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@id/checkout_payment_txt"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="4dp"
+                android:layout_toEndOf="@id/checkout_payment_img"
+                android:maxHeight="40dp"
+                android:text="@string/payment_method"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/checkout_payment_nextAction"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/viewPadding"
+            android:contentDescription="@string/payment_method"
+            android:src="@drawable/icon_next" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_order"
+    app:startDestination="@id/shoppingbagFragment">
+
+    <fragment
+        android:id="@+id/shoppingbagFragment"
+        android:name="com.fdhasna21.yeouthmarketplace.Orders.ShoppingbagFragment"
+        android:label="fragment_shoppingbag"
+        tools:layout="@layout/fragment_order_shoppingbag" >
+        <action
+            android:id="@+id/action_shoppingbagFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.fdhasna21.yeouthmarketplace.Orders.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_order_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_shoppingbagFragment"
+            app:destination="@id/shoppingbagFragment" />
+    </fragment>
+</navigation>

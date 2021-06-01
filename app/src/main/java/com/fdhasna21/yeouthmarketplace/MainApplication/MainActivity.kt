@@ -10,7 +10,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.fdhasna21.yeouthmarketplace.CatalogDetail.CatalogActivity
+import com.fdhasna21.yeouthmarketplace.Orders.OrderActivity
 import com.fdhasna21.yeouthmarketplace.R
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        //TODO : show progress bar!
+        //TODO : change using navigation
 
         /* TOP BAR : topbar_mainmenu*/
         mainTopBar = findViewById(R.id.main_topbar_menu)
@@ -38,12 +37,8 @@ class MainActivity : AppCompatActivity() {
         mainTopBar.setOnMenuItemClickListener {
             when(it.itemId) {
                 R.id.topbar_shoppingbag -> {
-                    //TODO : intent to shopping bag
-//                    val intent = Intent(applicationContext, ShoppingBag::class.java)
-//                    startActivity(intent)
-                    val intent = Intent(applicationContext, CatalogActivity::class.java)
+                    val intent = Intent(applicationContext, OrderActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(this, "Shopping Bag", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> false

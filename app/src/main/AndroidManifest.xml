@@ -16,20 +16,17 @@
         android:theme="@style/Theme.Yeouth"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustPan">
-        <activity android:name=".Orders.ShoppingbagActivity"></activity>
-        <activity
-            android:name=".SplashScreen"
-            android:noHistory="true">
-            <intent-filter>
+        <activity android:name=".CatalogDetail.ProductDetailActivity"/>
+        <activity android:name=".Orders.OrderActivity" />
+        <activity android:name=".SplashScreen" android:noHistory="true">
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+             </intent-filter>
         </activity>
         <activity android:name=".SignInUp.SignActivity" />
         <activity android:name=".MainApplication.MainActivity" />
-        <activity android:name=".CatalogDetail.CatalogActivity">
-        </activity>
+        <activity android:name=".CatalogDetail.CatalogActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

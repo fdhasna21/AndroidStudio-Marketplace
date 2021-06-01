@@ -17,9 +17,10 @@ class ServerAPI {
     var retrofit : Retrofit? = null
     var httpClient = OkHttpClient.Builder()
 
-    fun setCircularProgress(context: Context) : CircularProgressIndicator{
-        return CircularProgressIndicator(context)
-    }
+    //TODO : fixing endpoint and its response (laravel) to get exact data that needed, trim the unused one! (try to learn how to make view MySQL in laravel)
+    //done : user(login, register)
+    //done but should be repaired : category_feeds(all for home/feeds, show its products), product(all for category, each by id)
+    //not done yet : user(edit user_detail), wishlist(add/remove, check certain product, show all), shoppingbag(add/edit, delete, show all), order(add all, add based on selection)
 
     fun getServerAPI() : Retrofit?{
         if(retrofit == null){

@@ -10,8 +10,8 @@ import retrofit2.http.Query
 
 interface CategoryFeedInterface {
     @GET("category") //by ("group"/"merchandise") || limit (numeric)
-    fun categoryProduct(@Query("by") by:String?,
-                        @Query("limit") limit:Int?) : Call<Category>
+    fun categoryProducts(@Query("by") by:String?,
+                         @Query("limit") limit:Int?) : Call<Category>
 
     @GET("feeds")
     fun feedProduct(@Query("limit") limit:Int?) : Call <Feed>

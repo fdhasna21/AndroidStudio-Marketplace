@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Orders.OrderActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/order_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:elevation="0dp"
+        android:outlineProvider="none">
+
+        <include
+            android:id="@+id/order_statusbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/transparent_status_bar" />
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/order_topbar_menu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu="@menu/menu_topbar_order"
+            app:titleTextColor="@color/white"
+            app:title="Order"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_below="@id/order_topbar"
+        android:layout_above="@id/order_bottombar_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_order" />
+
+    <include
+        android:id="@+id/order_bottombar_menu"
+        layout="@layout/bottombar_order"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottomBarPadding"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/subviewPadding"/>
+
+    <!--    TODO : setting progress bar (add for empty order) -->
+    <RelativeLayout
+        android:id="@+id/order_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/transparent_progress_circular" />
+    </RelativeLayout>
+
+</RelativeLayout>

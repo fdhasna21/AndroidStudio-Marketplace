@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -17,7 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.fdhasna21.yeouthmarketplace.Adapter.CategoryAdapter
 import com.fdhasna21.yeouthmarketplace.Adapter.ProductCatalogAdapter
 import com.fdhasna21.yeouthmarketplace.DataClass.Category
-import com.fdhasna21.yeouthmarketplace.Orders.ShoppingbagActivity
+import com.fdhasna21.yeouthmarketplace.Orders.OrderActivity
 import com.fdhasna21.yeouthmarketplace.R
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.Interface.CategoryFeedInterface
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.Interface.ProductInterface
@@ -38,7 +39,7 @@ class CatalogActivity : AppCompatActivity() {
     private lateinit var catalogTopBar : MaterialToolbar
     private lateinit var drawerLayout_catalog : DrawerLayout
     private lateinit var actionBarToggle_catalog : ActionBarDrawerToggle
-    private var topBarTitle : String = ""
+    private var topBarTitle : String = "Catalog"
 
     private fun itemCategory(by: String?){
         //by = "group", "merchandise"
@@ -46,9 +47,10 @@ class CatalogActivity : AppCompatActivity() {
         var categoryMerchandise = emptyCategoriesMerchandise
         var categoryGroup = emptyCategoriesGroup
         val categoryFeedInterface = ServerAPI().getServerAPI()!!.create(CategoryFeedInterface::class.java)
-        categoryFeedInterface.categoryProduct(by, null).enqueue(object : Callback<Category>{
+        categoryFeedInterface.categoryProducts(by, null).enqueue(object : Callback<Category>{
             override fun onResponse(call: Call<Category>, response: Response<Category>) {
                 if(response.isSuccessful){
+                    catalog_progress.visibility = View.GONE
                     if(by == "group"){
                         categoryGroup = response.body()?.group!!
                     } else if(by == "merchandise"){
@@ -56,6 +58,7 @@ class CatalogActivity : AppCompatActivity() {
                     }
                     catalog_container.adapter = CategoryAdapter(categoryGroup, categoryMerchandise, this@CatalogActivity)
                 } else {
+                    catalog_progress.visibility = View.GONE
                     try {
                         Toast.makeText(this@CatalogActivity, "Failed to load data.", Toast.LENGTH_SHORT).show()
                         val output: ErrorResponse = ErrorHelper().parseErrorBody(response)
@@ -73,8 +76,10 @@ class CatalogActivity : AppCompatActivity() {
     }
 
 
-    private fun itemProduct(by:String?, detail:Array<String>?){
-        topBarTitle = by!! //TODO : capitalize for feeds (remove "feeds")
+    private fun itemProduct(by:String?, detail:ArrayList<String>?){
+        //by = "feedsNewCollection", "feedsBestSeller", "feedsTrendingMerchandise", "group", "merchandise", "search"
+        //detail = arrayListOf(topBarTitle : String, value : Int)
+        topBarTitle = detail!![0]
         val productInterface = ServerAPI().getServerAPI()!!.create(ProductInterface::class.java)
         val query = when(by){
             "group" -> productInterface.allProducts(by, null, detail!![1].toInt(), null)
@@ -88,9 +93,11 @@ class CatalogActivity : AppCompatActivity() {
                 response: Response<SuccessResponse>
             ) {
                 if(response.isSuccessful){
+                    catalog_progress.visibility = View.GONE
                     catalog_container.adapter = ProductCatalogAdapter(response.body()?.products!!, this@CatalogActivity)
                 } else {
                     try {
+                        catalog_progress.visibility = View.GONE
                         Toast.makeText(this@CatalogActivity, "Failed to load data.", Toast.LENGTH_SHORT).show()
                         val output: ErrorResponse = ErrorHelper().parseErrorBody(response)
                         //Toast.makeText(activity, output.toString(), Toast.LENGTH_LONG).show()
@@ -109,11 +116,15 @@ class CatalogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_catalog)
+        //TODO : search product (from topbar in several activities) refer in here
+        //TODO : resize its adapter
 
         /* ADAPTER & TOP BAR TITLE */
+        //TODO : if data is empty, show lottie 'empty' (find it!)
+        catalog_progress.visibility = View.VISIBLE
         val menuType = intent.getStringExtra("menuType") //itemCategory or itemProduct
         val detailType = intent.getStringExtra("detailType") // group/merch feedsNewCollection etc/all/search
-        val productType = intent.getStringArrayExtra("productType") //detailType and its param (group, merchandise, product, and search)
+        val productType = intent.getStringArrayListExtra("productType") //detailType and its param (group, merchandise, product, and search)
         catalog_container.layoutManager = GridLayoutManager(this,2)
         if(menuType == "itemCategory"){
             itemCategory(detailType)
@@ -152,7 +163,7 @@ class CatalogActivity : AppCompatActivity() {
                 }
             }
             R.id.topbar_shoppingbag -> {
-                val intent = Intent(applicationContext, ShoppingbagActivity::class.java)
+                val intent = Intent(applicationContext, OrderActivity::class.java)
                 startActivity(intent)
             }
         }

@@ -39,6 +39,7 @@ class FeedsAdapter(val feedsArray : ArrayList<Int>,
                 val intent = Intent(context, CatalogActivity::class.java)
                 intent.putExtra("menuType", "itemProduct")
                 intent.putExtra("detailType", "feedsNewCollection")
+                intent.putStringArrayListExtra("productType", arrayListOf<String>("New Collection", "0"))
                 context.startActivity(intent)
             }
         }
@@ -51,6 +52,7 @@ class FeedsAdapter(val feedsArray : ArrayList<Int>,
                 val intent = Intent(context, CatalogActivity::class.java)
                 intent.putExtra("menuType", "itemProduct")
                 intent.putExtra("detailType", "feedsTrendingMerchandise")
+                intent.putStringArrayListExtra("productType", arrayListOf<String>("Trending Merchandise", "0"))
                 context.startActivity(intent)
             }
         }
@@ -63,6 +65,7 @@ class FeedsAdapter(val feedsArray : ArrayList<Int>,
                 val intent = Intent(context, CatalogActivity::class.java)
                 intent.putExtra("menuType", "itemProduct")
                 intent.putExtra("detailType", "feedsBestSeller")
+                intent.putStringArrayListExtra("productType", arrayListOf<String>("Best Seller", "0"))
                 context.startActivity(intent)
             }
         }

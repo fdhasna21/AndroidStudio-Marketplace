@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainApplication.MainActivity"
-    android:orientation="vertical"
     android:id="@+id/fragment_feeds">
 
     <LinearLayout
@@ -15,100 +14,17 @@
         android:orientation="vertical"
         android:layout_marginHorizontal="@dimen/layoutPadding">
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/layoutPadding">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/feeds_newCollection_name"-->
-<!--                style="?attr/textAppearanceHeadline6"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/new_collection" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/feeds_newCollection_seeAll"-->
-<!--                style="?attr/textAppearanceCaption"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="end"-->
-<!--                android:text="@string/see_all"-->
-<!--                android:layout_alignBaseline="@id/feeds_newCollection_name"-->
-<!--                android:layout_alignParentEnd="true"/>-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/feeds_newCollection_container"-->
-<!--                android:layout_below="@id/feeds_newCollection_name"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"/>-->
-<!--        </RelativeLayout>-->
-
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/layoutPadding">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/feeds_trendingMerchandise_name"-->
-<!--                style="?attr/textAppearanceHeadline6"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Trending Merchandise" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/feeds_trendingMerchandise_seeAll"-->
-<!--                style="?attr/textAppearanceCaption"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="end"-->
-<!--                android:text="@string/see_all"-->
-<!--                android:layout_alignBaseline="@id/feeds_trendingMerchandise_name"-->
-<!--                android:layout_alignParentEnd="true"/>-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/feeds_trendingMerchandise_container"-->
-<!--                android:layout_below="@id/feeds_trendingMerchandise_name"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"/>-->
-<!--        </RelativeLayout>-->
-
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/layoutPadding">-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/feeds_bestSeller_name"-->
-<!--                style="?attr/textAppearanceHeadline6"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Best Seller" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/feeds_bestSeller_seeAll"-->
-<!--                style="?attr/textAppearanceCaption"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="end"-->
-<!--                android:text="@string/see_all"-->
-<!--                android:layout_alignBaseline="@id/feeds_bestSeller_name"-->
-<!--                android:layout_alignParentEnd="true"/>-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/feeds_bestSeller_container"-->
-<!--                android:layout_below="@id/feeds_bestSeller_name"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"/>-->
-<!--        </RelativeLayout>-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/feeds_recycler_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center" />
     </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+
+    <include
+        android:id="@+id/feeds_progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/transparent_progress_circular"
+        android:visibility="gone"/>
+</RelativeLayout>

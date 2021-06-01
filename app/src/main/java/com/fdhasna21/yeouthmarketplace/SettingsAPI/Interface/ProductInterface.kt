@@ -3,6 +3,7 @@ package com.fdhasna21.yeouthmarketplace.SettingsAPI.Interface
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.ResponseDataClass.SuccessResponse
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ProductInterface {
@@ -11,4 +12,7 @@ interface ProductInterface {
                     @Query("merchandise") merchandiseID:Int?,
                     @Query("group") groupID:Int?,
                     @Query("search") searchKey:String?) : Call<SuccessResponse>
+
+    @GET("product={productID}")
+    fun eachProduct(@Path("productID") productID:Int?) : Call<SuccessResponse>
 }

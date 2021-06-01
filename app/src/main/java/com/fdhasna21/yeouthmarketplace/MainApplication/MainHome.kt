@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.fdhasna21.yeouthmarketplace.Adapter.CategoriesAdapter
-import com.fdhasna21.yeouthmarketplace.Adapter.CategoryAdapter
 import com.fdhasna21.yeouthmarketplace.DataClass.Category
 import com.fdhasna21.yeouthmarketplace.R
 import com.fdhasna21.yeouthmarketplace.SettingsAPI.Interface.CategoryFeedInterface
@@ -70,10 +68,13 @@ class MainHome : Fragment() {
         carouselView.setImageListener(imageListener)
         carouselView.setPageCount(sampleImages.size)
 
+        val loadingBar = view.home_progress
+        loadingBar.visibility = View.VISIBLE
         val categoryFeedInterface = ServerAPI().getServerAPI()!!.create(CategoryFeedInterface::class.java)
-        categoryFeedInterface.categoryProduct(null, 5).enqueue(object : Callback<Category> {
+        categoryFeedInterface.categoryProducts(null, 5).enqueue(object : Callback<Category> {
             override fun onResponse(call: Call<Category>?, response: Response<Category>?) {
                 if (response!!.isSuccessful) {
+                    loadingBar.visibility = View.GONE
                     val categoryAdapter = CategoriesAdapter(
                         arrayListOf(1, 2),
                         response.body()?.merch,
@@ -82,16 +83,8 @@ class MainHome : Fragment() {
                     )
                     view.home_recycler_container.layoutManager = LinearLayoutManager(context)
                     view.home_recycler_container.adapter = categoryAdapter
-
-//                    val categoryGroup = CategoryAdapter(categoryGroup = response.body()!!.group!!, context = requireContext())
-//                    view.home_group_container.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-//                    view.home_group_container.adapter = categoryGroup
-//
-//                    val categoryMerchandise = CategoryAdapter(categoryMerchandise = response.body()!!.merch!!, context = requireContext())
-//                    view.home_merchandise_container.layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
-//                    view.home_merchandise_container.adapter = categoryMerchandise
-
                 } else {
+                    loadingBar.visibility = View.GONE
                     try {
                         Toast.makeText(activity, "Failed to load data.", Toast.LENGTH_SHORT).show()
                         val output: ErrorResponse = ErrorHelper().parseErrorBody(response)

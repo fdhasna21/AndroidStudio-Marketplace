@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/bottomsheet_detail_quantityStat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/layoutPadding"
+        android:paddingVertical="@dimen/layoutPadding">
+        <TextView
+            android:id="@+id/bottomsheet_detail_quantity"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="@string/quantity"
+            style="?attr/textAppearanceBody2"/>
+
+        <TextView
+            android:id="@+id/bottomsheet_detail_btn_decre"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/bg_qty_button"
+            android:text="-"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/bottomsheet_detail_txt_quantity"/>
+
+        <TextView
+            android:id="@+id/bottomsheet_detail_txt_quantity"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            style="?attr/textAppearanceCaption"
+            android:text="0"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_toLeftOf="@id/bottomsheet_detail_btn_incre"/>
+
+        <TextView
+            android:id="@+id/bottomsheet_detail_btn_incre"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/bg_qty_button"
+            android:text="+"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <Button
+        android:layout_marginHorizontal="@dimen/layoutPadding"
+        android:id="@+id/bottomsheet_detail_btn_nextAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/next"
+        android:layout_below="@id/bottomsheet_detail_quantityStat"
+        style="@style/AppTextAppearance.Button"/>
+</RelativeLayout>

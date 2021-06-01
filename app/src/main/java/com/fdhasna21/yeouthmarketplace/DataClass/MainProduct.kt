@@ -5,7 +5,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 data class MainProduct(
-    @SerializedName("id") val productID : String?,
+    @SerializedName("id") val productID : Int?,
     @SerializedName("product_name") val productName : String?,
     @SerializedName("product_category") val productCategory: String?,
     @SerializedName("product_detail") val productDetail : String?,

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layoutPadding"
+        android:layout_marginTop="@dimen/viewPadding">
+
+        <TextView
+            android:id="@+id/bottombar_shopping_tp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_price"
+            tools:ignore="RelativeOverlap"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:id="@+id/bottombar_shopping_txt_totalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layoutPadding"
+            android:layout_below="@id/bottombar_shopping_tp"
+            android:text="@string/totalPrice_temp"
+            android:textColor="?attr/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="4sp"/>
+
+        <Button
+            android:id="@+id/bottombar_shopping_btn_nextAction"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="@string/next"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            style="@style/AppTextAppearance.Button"/>
+    </RelativeLayout>
+</RelativeLayout>
